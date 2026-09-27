@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  --color-navy-50: #EEF2FF;
+  --color-navy-100: #E0E7FF;
+  --color-navy-200: #C7D7FF;
+  --color-navy-600: #2563EB;
+  --color-navy-800: #1E3A8A;
+  --color-navy-900: #071A3D;
+
+  --color-finance-blue: #2563EB;
+  --color-finance-green: #16A34A;
+  --color-finance-orange: #F59E0B;
+  --color-finance-purple: #7C3AED;
+  --color-finance-red: #DC2626;
+  --color-finance-teal: #0891B2;
+}
+
+:root {
+  color-scheme: light;
+  --bg-page: #F1F5F9;
+  --bg-card: #FFFFFF;
+  --bg-sidebar: #071A3D;
+  --border-color: #E2E8F0;
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #94A3B8;
+}
+
+html.dark {
+  color-scheme: dark;
+  --bg-page: #060D1F;
+  --bg-card: #0D1630;
+  --bg-sidebar: #050C1A;
+  --border-color: #1E2A45;
+  --text-primary: #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  transition: scrollbar-color 0.2s;
+}
+
+*:hover {
+  scrollbar-color: rgb(100 116 139 / 0.3) transparent;
+}
+
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Tabular numbers for financial data */
+.nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Card base style */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+}
+
+/* Sidebar nav item active */
+.nav-item-active {
+  background: rgba(37, 99, 235, 0.15);
+  color: #60A5FA;
+}
+
+/* Smooth transitions everywhere */
+.transition-theme {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Progress bar animation */
+@keyframes progressFill {
+  from { width: 0; }
+}
+
+.progress-animated {
+  animation: progressFill 0.8s ease-out forwards;
+}
+
+/* Count up animation helper */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.3s ease-out forwards;
+}
+
+/* Custom checkbox */
+input[type="checkbox"] {
+  accent-color: #2563EB;
+}
